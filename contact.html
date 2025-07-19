@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Full Secure Sdn Bhd - 联系我们</title>
+    <style>
+        /* 通用样式 */
+        body {
+            font-family: Arial, sans-serif; /* 设置全局字体为Arial或无衬线字体 */
+            margin: 0; /* 移除页面外边距 */
+            padding: 0; /* 移除页面内边距 */
+            box-sizing: border-box; /* 盒模型设置为边框盒，padding和border包含在元素的总宽度和高度内 */
+            color: #FFFF00; /* 全局字体颜色设置为黄色 */
+            background: url('background.png') no-repeat center center fixed; /* 设置背景图片，不重复，居中显示，固定不滚动 */
+            background-size: cover; /* 背景图片覆盖整个元素 */
+        }
+
+        /* 头部样式 */
+        header {
+            display: flex; /* 使用Flexbox布局，使子元素（logo和导航）水平排列 */
+            justify-content: space-between; /* 子元素之间和容器两端有空间，实现logo在左，导航在右 */
+            align-items: center; /* 子元素在交叉轴上（垂直方向）居中对齐 */
+            padding: 15px 50px; /* 调整内边距，增加垂直空间，使logo更显眼 */
+            /* background-color: lightgrey; */ /* 删除浅灰色背景 */
+            /* border-bottom: 1px solid #eee; */ /* 移除底部细边框 */
+        }
+
+        .logo img {
+            height: auto; /* 保持图片比例 */
+            max-height: 120px; /* 增加logo图片的最大高度，使其更明显 */
+            display: block; /* 将图片设置为块级元素，避免底部额外空白 */
+            object-fit: contain;
+        }
+
+        nav ul {
+            list-style: none; /* 移除列表项的默认标记（如圆点） */
+            margin: 0; /* 移除列表外边距 */
+            padding: 0; /* 移除列表内边距 */
+            display: flex; /* 使用Flexbox布局，使导航链接水平排列 */
+        }
+
+        nav ul li {
+            margin-left: 25px; /* 设置列表项左侧外边距，创建间距 */
+        }
+
+        nav ul li a {
+            text-decoration: none; /* 移除链接下划线 */
+            color: red; /* 设置链接文字颜色为红色 */
+            font-weight: bold; /* 文字加粗 */
+            padding: 8px 15px; /* 设置链接内边距 */
+            background-color: transparent; /* 设置链接背景色为透明 */
+            border-radius: 5px; /* 设置边框圆角 */
+            transition: background-color 0.3s ease, color 0.3s ease; /* 添加背景色和文字颜色过渡效果 */
+        }
+
+        nav ul li a:hover {
+            background-color: rgba(255, 0, 0, 0.1); /* 鼠标悬停时背景色变为浅红色透明 */
+            color: darkred; /* 鼠标悬停时文字颜色变深 */
+        }
+
+        nav ul li a:active {
+            background-color: rgba(255, 0, 0, 0.2); /* 鼠标点击（激活）时背景色进一步变深透明 */
+            color: #8B0000; /* 鼠标点击（激活）时文字颜色进一步变深 */
+        }
+
+        /* 联系我们页面特定样式 */
+        .contact-content {
+            padding: 50px 20px; /* 内边距 */
+            max-width: 800px; /* 最大宽度 */
+            margin: 0 auto; /* 水平居中 */
+            text-align: center; /* 文字居中 */
+            background-color: rgba(0, 0, 0, 0.5); /* 添加半透明黑色背景，提升文字可读性 */
+            border-radius: 10px; /* 圆角边框 */
+            margin-top: 30px; /* 顶部外边距，与头部保持距离 */
+            margin-bottom: 30px; /* 底部外边距 */
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); /* 添加阴影效果 */
+            color: #FFFF00; /* 联系内容区域的文字颜色设置为黄色，覆盖body的设置 */
+        }
+
+        .contact-content h1 {
+            color: #00FF00; /* 标题颜色设置为亮绿色，与黄色文字形成对比 */
+            margin-bottom: 30px; /* 底部外边距 */
+            font-size: 42px; /* 字体大小 */
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7); /* 添加标题文字阴影 */
+        }
+
+        .contact-content p {
+            font-size: 18px; /* 字体大小 */
+            line-height: 1.8; /* 行高 */
+            margin-bottom: 20px; /* 底部外边距 */
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.6); /* 段落文字阴影 */
+        }
+
+        .contact-info {
+            list-style: none; /* 移除列表默认样式 */
+            padding: 0; /* 移除列表内边距 */
+            margin-top: 30px; /* 顶部外边距 */
+            text-align: left; /* 联系信息左对齐 */
+            display: inline-block; /* 使列表居中，因为父元素是text-align: center; */
+        }
+
+        .contact-info li {
+            margin-bottom: 15px; /* 列表项底部外边距 */
+            font-size: 16px; /* 字体大小 */
+            background-color: rgba(255, 255, 255, 0.1); /* 列表项背景色半透明 */
+            padding: 10px 15px; /* 列表项内边距 */
+            border-radius: 5px; /* 列表项圆角 */
+            border-left: 5px solid #00FF00; /* 左侧添加亮绿色边框作为装饰 */
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); /* 列表项阴影 */
+            color: #FFFFF0; /* 列表项文字颜色设置为象牙白，与黄色区分 */
+            display: flex; /* 使用flexbox布局 */
+            align-items: center; /* 垂直居中对齐 */
+            flex-wrap: wrap; /* 允许内容换行 */
+        }
+
+        .contact-info li strong {
+            display: inline-block; /* 设置为行内块元素 */
+            width: 100px; /* 统一标签宽度 */
+            text-align: right; /* 标签右对齐 */
+            margin-right: 10px; /* 右侧外边距 */
+            color: #FFD700; /* 加粗文字颜色设置为金色，突出显示 */
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5); /* 加粗文字阴影 */
+        }
+
+        .whatsapp-button {
+            display: inline-block;
+            margin-left: 15px; /* 与电话号码的间距 */
+            padding: 8px 15px;
+            background-color: #25D366; /* WhatsApp绿色 */
+            color: white;
+            text-decoration: none;
+            border-radius: 25px; /* 圆角按钮 */
+            font-weight: bold;
+            font-size: 14px;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+            display: flex;
+            align-items: center;
+            gap: 5px; /* 图标和文字之间的间距 */
+        }
+
+        .whatsapp-button:hover {
+            background-color: #1DA851; /* 鼠标悬停时颜色变深 */
+            transform: translateY(-2px); /* 鼠标悬停时稍微上浮 */
+        }
+
+        .whatsapp-button:active {
+            background-color: #17833F; /* 鼠标点击时颜色更深 */
+            transform: translateY(0); /* 鼠标点击时恢复原位 */
+        }
+
+        .whatsapp-button img {
+            height: 18px; /* WhatsApp图标大小 */
+            width: 18px;
+        }
+
+        /* 响应式设计 */
+        @media (max-width: 768px) { /* 当屏幕宽度小于或等于768px时应用以下样式 */
+            header {
+                flex-direction: column; /* 头部内容垂直堆叠 */
+                padding: 15px; /* 调整内边距 */
+            }
+
+            .logo img {
+                /* height: 50px; */ /* 移除或注释掉这一行，让logo保持其在非媒体查询中的尺寸 */
+                /* max-height: none; */ /* 这一行也不再需要，因为我们希望保留默认的max-height */
+            }
+
+            nav ul {
+                margin-top: 15px; /* 导航列表上边距 */
+                flex-wrap: wrap; /* 允许导航项换行 */
+                justify-content: center; /* 导航项居中对齐 */
+            }
+
+            nav ul li {
+                margin: 0 8px 10px 8px; /* 调整导航项间距 */
+            }
+
+            .contact-content {
+                padding: 30px 15px; /* 调整联系内容部分的内边距 */
+                margin-top: 15px; /* 手机端调整顶部外边距 */
+                margin-bottom: 15px; /* 手机端调整底部外边距 */
+            }
+
+            .contact-content h1 {
+                font-size: 32px; /* 调整标题字体大小 */
+            }
+
+            .contact-content p {
+                font-size: 16px; /* 调整段落字体大小 */
+            }
+
+            .contact-info {
+                text-align: center; /* 手机上列表居中 */
+            }
+
+            .contact-info li {
+                padding: 8px 12px; /* 手机端调整列表项内边距 */
+                justify-content: center; /* 手机上列表项内容居中 */
+            }
+
+            .contact-info li strong {
+                width: auto; /* 手机上取消固定宽度 */
+                text-align: left;
+                margin-right: 5px;
+            }
+
+            .whatsapp-button {
+                margin-left: 0; /* 手机上取消左侧外边距 */
+                margin-top: 10px; /* 手机上按钮与电话号码之间增加顶部外边距 */
+                width: 100%; /* 手机上按钮宽度占满 */
+                justify-content: center; /* 手机上按钮内容居中 */
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="logo">
+            <img src="logo.png" alt="Full Secure Sdn Bhd Logo">
+        </div>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="services.html">Services</a></li>
+		<li><a href="partner.html">Partner</a></li>
+                <li><a href="contact.html">Contact Us</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section class="contact-content">
+            <h1>Contact Us</h1>
+            <p>If you have any questions about our services or need a consultation, please feel free to contact Full Secure Sdn Bhd's professional team. We are happy to assist you.</p>
+            <ul class="contact-info">
+                <li>
+                    <strong>Address:</strong> [30, Jalan Hang Jebat 42, Taman Skudai Baru 81300 Johor Malaysia]
+                </li>
+                <li>
+                    <strong>Phone:</strong> [Mr. Tey (Director) 018-768 7998]
+                    <a href="https://wa.me/60187687998" target="_blank" class="whatsapp-button">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp Icon">
+                        WhatsApp
+                    </a>
+                </li>
+                <li>
+                    <strong>Phone:</strong> [Mr. Yao (Marketing) 012-588 8732]
+                    <a href="https://wa.me/60125888732" target="_blank" class="whatsapp-button">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp Icon">
+                        WhatsApp
+                    </a>
+                </li>
+		<li>
+                    <strong>Phone:</strong> [Mr. Khoo (Technician) 019-943 0621]
+                    <a href="https://wa.me/60199430621" target="_blank" class="whatsapp-button">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp Icon">
+                        WhatsApp
+                    </a>
+                </li>
+                <li>
+                    <strong>Email:</strong> [fullsecure.sdn.bhd@gmail.com]
+                </li>
+                <li>
+                    <strong>Working Hours:</strong> Monday to Friday, 9:00am - 6:00pm
+                </li>
+            </ul>
+            <p>We look forward to your call or visit !</p>
+        </section>
+    </main>
+
+</body>
+</html>

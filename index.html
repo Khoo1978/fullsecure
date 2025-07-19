@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Full Secure Sdn Bhd - 主页</title>
+    <style>
+        /* 通用样式 */
+        body {
+            font-family: Arial, sans-serif; /* 设置全局字体为Arial或无衬线字体 */
+            margin: 0; /* 移除页面外边距 */
+            padding: 0; /* 移除页面内边距 */
+            box-sizing: border-box; /* 盒模型设置为边框盒，padding和border包含在元素的总宽度和高度内 */
+            color: #333; /* 设置默认文字颜色 */
+            background: url('background.png') no-repeat center center/cover; /* 设置背景图片，不重复，居中显示，覆盖整个区域 */
+        }
+
+        /* 头部样式 */
+        header {
+            display: flex; /* 使用Flexbox布局，使子元素（logo和导航）水平排列 */
+            justify-content: space-between; /* 子元素之间和容器两端有空间，实现logo在左，导航在右 */
+            align-items: center; /* 子元素在交叉轴上（垂直方向）居中对齐 */
+            padding: 15px 50px; /* 调整内边距，增加垂直空间，使logo更显眼 */
+            /* background-color: lightgrey; */ /* 删除浅灰色背景 */
+            /* border-bottom: 1px solid #eee; */ /* 移除底部细边框 */
+        }
+
+        .logo img {
+            height: auto; /* 保持图片比例 */
+            max-height: 120px; /* 增加logo图片的最大高度，使其更明显 */
+            display: block; /* 将图片设置为块级元素，避免底部额外空白 */
+            object-fit: contain;
+        }
+
+        nav ul {
+            list-style: none; /* 移除列表项的默认标记（如圆点） */
+            margin: 0; /* 移除列表外边距 */
+            padding: 0; /* 移除列表内边距 */
+            display: flex; /* 使用Flexbox布局，使导航链接水平排列 */
+        }
+
+        nav ul li {
+            margin-left: 25px; /* 设置列表项左侧外边距，创建间距 */
+        }
+
+        nav ul li a {
+            text-decoration: none; /* 移除链接下划线 */
+            color: red; /* 设置链接文字颜色为红色 */
+            font-weight: bold; /* 文字加粗 */
+            padding: 8px 15px; /* 设置链接内边距 */
+            background-color: transparent; /* 设置链接背景色为透明 */
+            border-radius: 5px; /* 设置边框圆角 */
+            transition: background-color 0.3s ease, color 0.3s ease; /* 添加背景色和文字颜色过渡效果 */
+        }
+
+        nav ul li a:hover {
+            background-color: rgba(255, 0, 0, 0.1); /* 鼠标悬停时背景色变为浅红色透明 */
+            color: darkred; /* 鼠标悬停时文字颜色变深 */
+        }
+
+        nav ul li a:active {
+            background-color: rgba(255, 0, 0, 0.2); /* 鼠标点击（激活）时背景色进一步变深透明 */
+            color: #8B0000; /* 鼠标点击（激活）时文字颜色进一步变深 */
+        }
+
+        /* 公司介绍部分 */
+        .hero-section {
+            color: yellow; /* 设置文字颜色为黄色 */
+            text-align: center; /* 文字居中对齐 */
+            padding: 100px 20px; /* 设置内边距：上下100px，左右20px */
+            min-height: 450px; /* 设置最小高度 */
+            display: flex; /* 使用Flexbox布局 */
+            flex-direction: column; /* 子元素垂直排列 */
+            justify-content: center; /* 子元素在主轴上（垂直方向）居中 */
+            align-items: center; /* 子元素在交叉轴上（水平方向）居中 */
+            text-shadow: 6px 6px 8px rgba(0.8, 0.8, 0.8, 0); /* 添加文字阴影，提高可读性 */
+        }
+
+        .hero-section h1 {
+            font-size: 48px; /* 设置标题字体大小 */
+            margin-bottom: 20px; /* 标题底部外边距 */
+            letter-spacing: 2px; /* 字符间距 */
+        }
+
+        .hero-section p {
+            font-size: 18px; /* 段落字体大小 */
+            line-height: 1.8; /* 行高 */
+            max-width: 800px; /* 最大宽度 */
+            margin-bottom: 40px; /* 段落底部外边距 */
+        }
+
+        .cta-buttons {
+            display: flex; /* 使用Flexbox布局，使按钮水平排列 */
+            gap: 20px; /* 按钮之间的间距 */
+        }
+
+        .cta-button {
+            display: inline-block; /* 设置为行内块元素 */
+            padding: 15px 30px; /* 设置按钮内边距 */
+            background-color: #007bff; /* 按钮默认背景色为蓝色 */
+            color: white; /* 按钮文字颜色为白色 */
+            text-decoration: none; /* 移除下划线 */
+            border-radius: 5px; /* 边框圆角 */
+            font-weight: bold; /* 文字加粗 */
+            transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease; /* 添加过渡效果 */
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* 添加阴影效果 */
+        }
+
+        .cta-button:hover {
+            background-color: #0056b3; /* 鼠标悬停时背景色变深 */
+            transform: translateY(-2px); /* 鼠标悬停时向上轻微移动 */
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3); /* 鼠标悬停时阴影变大 */
+        }
+
+        .cta-button:active {
+            background-color: #003d80; /* 鼠标点击（激活）时背景色进一步变深 */
+            transform: translateY(0); /* 鼠标点击时恢复原位 */
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); /* 鼠标点击时阴影变小 */
+        }
+
+        /* 响应式设计 */
+        @media (max-width: 768px) { /* 当屏幕宽度小于或等于768px时应用以下样式 */
+            header {
+                flex-direction: column; /* 头部内容垂直堆叠 */
+                padding: 15px; /* 调整内边距 */
+            }
+
+            .logo img {
+                /* height: 50px; */ /* 移除或注释掉这一行，让logo保持其在非媒体查询中的尺寸 */
+                /* max-height: none; */ /* 这一行也不再需要，因为我们希望保留默认的max-height */
+                /* 如果您希望在小屏幕下logo有不同的最大高度，可以在这里设置新的max-height */
+            }
+
+            nav ul {
+                margin-top: 15px; /* 导航列表上边距 */
+                flex-wrap: wrap; /* 允许导航项换行 */
+                justify-content: center; /* 导航项居中对齐 */
+            }
+
+            nav ul li {
+                margin: 0 8px 10px 8px; /* 调整导航项间距 */
+            }
+
+            .hero-section {
+                padding: 80px 15px; /* 调整公司介绍部分的内边距 */
+            }
+
+            .hero-section h1 {
+                font-size: 36px; /* 调整标题字体大小 */
+            }
+
+            .hero-section p {
+                font-size: 16px; /* 调整段落字体大小 */
+            }
+
+            .cta-buttons {
+                flex-direction: column; /* 按钮垂直堆叠 */
+                gap: 15px; /* 调整按钮间距 */
+            }
+
+            .cta-button {
+                width: 90%; /* 按钮宽度占据父容器的90% */
+                margin: 0 auto; /* 按钮水平居中 */
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="logo">
+            <img src="logo.png" alt="Full Secure Sdn Bhd Logo">
+        </div>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="services.html">Services</a></li>
+		<li><a href="partner.html">Partner</a></li>
+                <li><a href="contact.html">Contact Us</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section class="hero-section">
+            <h1>Welcome to Full Secure Sdn Bhd</h1>
+            <p>
+                Full Secure Sdn Bhd is a professional company dedicated to providing comprehensive security solutions. We understand that in today's rapidly developing world, individuals, families, and businesses alike have an increasing need for security.
+We have an experienced and professional team that utilizes the latest technologies and methods to customize the most suitable security strategies based on your specific needs and budget. From installation to maintenance, Full Secure Sdn Bhd is always your trusted security partner, committed to creating a safe and worry-free living and working environment for you.
+            </p>
+            <div class="cta-buttons">
+                <a href="services.html" class="cta-button">Services</a>
+                <a href="partner.html" class="cta-button">Partner</a>
+		<a href="contact.html" class="cta-button">Contact Us</a>
+            </div>
+        </section>
+    </main>
+
+</body>
+</html>

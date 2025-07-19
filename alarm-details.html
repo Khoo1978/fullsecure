@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Full Secure Sdn Bhd - 警报系统详情</title>
+    <style>
+        /* 通用样式 */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            color: #FFFF00; /* 全局字体颜色设置为黄色 */
+            background: url('background.png') no-repeat center center fixed;
+            background-size: cover;
+        }
+
+        /* 头部样式 */
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 50px;
+        }
+
+        .logo img {
+            height: auto;
+            max-height: 120px;
+            display: block;
+            object-fit: contain;
+        }
+
+        nav ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+        }
+
+        nav ul li {
+            margin-left: 25px;
+        }
+
+        nav ul li a {
+            text-decoration: none;
+            color: red; /* 链接颜色 */
+            font-weight: bold;
+            padding: 8px 15px;
+            background-color: transparent;
+            border-radius: 5px;
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
+
+        nav ul li a:hover {
+            background-color: rgba(255, 0, 0, 0.1);
+            color: darkred;
+        }
+
+        nav ul li a:active {
+            background-color: rgba(255, 0, 0, 0.2);
+            color: #8B0000;
+        }
+
+        /* 内容区域通用样式 */
+        .content-section {
+            padding: 50px 20px;
+            max-width: 960px;
+            margin: 0 auto;
+            text-align: center;
+            background-color: rgba(0, 0, 0, 0.5); /* 半透明黑色背景 */
+            border-radius: 10px;
+            margin-top: 30px;
+            margin-bottom: 30px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+            color: #FFFF00; /* 服务内容区域的文字颜色设置为黄色 */
+        }
+
+        .content-section h1, .content-section h2 {
+            color: #00FF00; /* 标题颜色 */
+            margin-bottom: 25px;
+            font-size: 38px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+        }
+        .content-section h2 {
+            font-size: 32px; /* 小标题字体大小 */
+            margin-top: 40px;
+            border-bottom: 2px solid rgba(0, 255, 0, 0.3); /* 底部绿色边框 */
+            padding-bottom: 10px;
+            text-align: center; /* 确保h2标题居中 */
+        }
+
+        .content-section p {
+            font-size: 18px;
+            line-height: 1.8;
+            margin-bottom: 20px;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.6);
+            text-align: left; /* 段落左对齐 */
+        }
+
+        .content-section ul {
+            list-style: disc; /* 使用圆点列表 */
+            text-align: left; /* 列表项左对齐 */
+            margin-left: 40px; /* 列表左边距 */
+            margin-bottom: 20px;
+            font-size: 18px;
+            line-height: 1.8;
+            color: #FFFFF0; /* 象牙白 */
+        }
+
+        .content-section ul li strong {
+            color: #FFD700; /* 金色加粗文字 */
+        }
+
+        /* 返回按钮样式 */
+        .back-button {
+            display: inline-block;
+            padding: 12px 25px;
+            background-color: #FF5733; /* 橙红色按钮 */
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: bold;
+            font-size: 18px;
+            transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            margin-top: 30px;
+        }
+
+        .back-button:hover {
+            background-color: #E04B2C; /* 鼠标悬停时变深 */
+            transform: translateY(-2px);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+        }
+
+        .back-button:active {
+            background-color: #C73E23;
+            transform: translateY(0);
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+        }
+
+        /* 响应式设计 */
+        @media (max-width: 768px) {
+            header {
+                flex-direction: column;
+                padding: 15px;
+            }
+
+            nav ul {
+                margin-top: 15px;
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+
+            nav ul li {
+                margin: 0 8px 10px 8px;
+            }
+
+            .content-section {
+                padding: 30px 15px;
+                margin-top: 15px;
+                margin-bottom: 15px;
+            }
+
+            .content-section h1 {
+                font-size: 32px;
+            }
+            .content-section h2 {
+                font-size: 28px;
+            }
+
+            .content-section p, .content-section ul {
+                font-size: 16px;
+                text-align: justify; /* 小屏幕上段落两端对齐 */
+                margin-left: 20px; /* 调整列表左边距 */
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="logo">
+            <img src="logo.png" alt="Full Secure Sdn Bhd Logo">
+        </div>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="services.html">Services</a></li>
+		<li><a href="partner.html">Partner</a></li>
+                <li><a href="contact.html">Contact Us</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section class="content-section">
+            <h1>Alarm system</h1>
+            <p>In today's society, a reliable alarm system is an indispensable line of defense to protect the safety of your property and loved ones. Full Secure Sdn Bhd is committed to providing the most advanced and reliable alarm solutions to create a peace of mind for you to live and work in peace of mind.</p>
+            <p>The alarm system monitors abnormal conditions through various sensors and immediately warns when a threat is detected, effectively preventing and reducing losses.</p>
+
+            <h2>Theft Alarm vs. Fire Alarm: Key Differences and Functions</h2>
+            <p>There are two main categories of alert systems, each serving its own function to protect against different types of security threats:</p>
+            <ul>
+                <li>
+                    <strong>Burglar Alarm System</strong>
+                    <p>It is mainly used to **detect illegal intrusions**. It monitors unauthorized access through magnetic force sensors installed on doors and windows, indoor infrared motion detectors, glass breakage detectors, etc. As soon as an intrusion is detected, the system immediately emits a piercing alarm to notify the occupants of the house and can send an alarm message to the homeowner or security company at the same time. Its core role is to deter intruders and provide valuable time for timely response.</p>
+                </li>
+                <li>
+                    <strong>Fire Alarm System</strong>
+                    <p>It is mainly used to detect fires and their early signs. It passes through smoke detectors, heat detectors, or hazardous gases. Once a fire risk is detected, the system will sound a loud fire alarm bell to indicate evacuation. Its primary purpose is to remind personnel to evacuate quickly in the early stages of a fire, minimizing casualties and property damage.</p>
+                </li>
+            </ul>
+
+            <h2>Benefits of other alarm systems</h2>
+            <p>In addition to basic burglar and fire warning, modern alarm systems offer a number of additional advantages:</p>
+            <ul>
+                <li>**Remote Monitoring and Control**: With the smartphone app, you can view system status, arm/disarm, and receive real-time alert notifications anytime, anywhere.</li>
+                <li>**Enhanced Property Value**: Having a professionally installed alarm system not only enhances security but also helps reduce insurance costs and potentially increases the property's appeal.</li>
+                <li>**Peace of Mind and Security**: Whether you're away from work, on vacation, or sleeping soundly late at night, the alarm system provides you with continuous protection and peace of mind.</li>
+                <li>**Emergency Response**: Some systems can be linked with professional monitoring centers or emergency services to ensure that someone can respond in a timely manner when you are unable to respond.</li>
+            </ul>
+
+            <h2>Advantages of choosing professional services</h2>
+            <p>The effectiveness of an alarm system largely depends on the professionalism of its design, installation, and maintenance. By choosing a professional service provider like Full Secure Sdn Bhd, you get:</p>
+            <ul>
+                <li>**Tailored Solutions**: Design the most reasonable arming plan based on your specific needs and site characteristics.</li>
+                <li>**High-quality equipment**: We only use proven and reliable alarm equipment to ensure stable system operation.</li>
+                <li>**Professional Installation**: Our technical team has extensive experience in ensuring that the equipment is installed in place, avoiding false positives and false negatives.</li>
+                <li>**Comprehensive After-Sales Support**: Provide system commissioning, troubleshooting, and regular maintenance, ensuring your alarm system is always in top condition.</li>
+                <li>**Peace of mind**: Leave the complex security matters to the experts, allowing you to focus on what's important.</li>
+            </ul>
+
+            <p style="margin-top: 40px; text-align: center;">A well-established alert system is an integral part of your security strategy. Contact Full Secure Sdn Bhd for professional security advice and solutions.</p>
+
+            <a href="contact.html" class="back-button">Contact Us</a>
+        </section>
+    </main>
+
+</body>
+</html>

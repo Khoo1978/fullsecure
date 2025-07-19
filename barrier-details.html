@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Full Secure Sdn Bhd - 停车场道闸系统</title>
+    <style>
+        /* 通用样式 */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            color: #FFFF00; /* 全局字体颜色设置为黄色 */
+            background: url('background.png') no-repeat center center fixed; /* 设置背景图片，不重复，居中显示，固定不滚动 */
+            background-size: cover; /* 背景图片覆盖整个元素 */
+        }
+
+        /* 头部样式 */
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 50px;
+        }
+
+        .logo img {
+            height: auto;
+            max-height: 120px;
+            display: block;
+            object-fit: contain;
+        }
+
+        nav ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+        }
+
+        nav ul li {
+            margin-left: 25px;
+        }
+
+        nav ul li a {
+            text-decoration: none;
+            color: red;
+            font-weight: bold;
+            padding: 8px 15px;
+            background-color: transparent;
+            border-radius: 5px;
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
+
+        nav ul li a:hover {
+            background-color: rgba(255, 0, 0, 0.1);
+            color: darkred;
+        }
+
+        nav ul li a:active {
+            background-color: rgba(255, 0, 0, 0.2);
+            color: #8B0000;
+        }
+
+        /* 内容页特定样式 */
+        .content-section {
+            padding: 50px 20px;
+            max-width: 960px;
+            margin: 0 auto;
+            text-align: center;
+            background-color: rgba(0, 0, 0, 0.5); /* 添加半透明黑色背景 */
+            border-radius: 10px;
+            margin-top: 30px;
+            margin-bottom: 30px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+            color: #FFFF00; /* 内容区域文字颜色设置为黄色 */
+        }
+
+        .content-section h1 {
+            color: #00FF00; /* 标题颜色设置为亮绿色 */
+            margin-bottom: 30px;
+            font-size: 42px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+        }
+
+        .content-section p {
+            font-size: 18px;
+            line-height: 1.8;
+            margin-bottom: 20px;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.6);
+            text-align: left; /* 段落文字左对齐 */
+        }
+
+        .features-list {
+            list-style: none;
+            padding: 0;
+            text-align: left;
+            max-width: 700px;
+            margin: 0 auto 30px auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+        }
+
+        .features-list li {
+            background-color: rgba(255, 255, 255, 0.1);
+            padding: 20px;
+            border-radius: 10px;
+            border-left: 5px solid #00FF00;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+            color: #FFFFF0;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start; /* 特点列表项内容左对齐 */
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .features-list li:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.4);
+        }
+
+        .features-list li strong {
+            color: #FFD700;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+            font-size: 22px; /* 特点标题字体大小 */
+            margin-bottom: 10px;
+        }
+
+        .features-list li span {
+            font-size: 16px;
+            line-height: 1.6;
+        }
+
+        .button-group {
+            margin-top: 40px;
+            display: flex;
+            justify-content: center;
+            gap: 20px; /* 按钮之间间距 */
+        }
+
+        .action-button {
+            display: inline-block;
+            padding: 12px 25px;
+            background-color: #FF5733;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: bold;
+            transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+            font-size: 18px; /* 按钮字体大小 */
+        }
+
+        .action-button:hover {
+            background-color: #E04B2C;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+        }
+
+        .action-button:active {
+            background-color: #C73E23;
+            transform: translateY(0);
+            box-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+        }
+
+        /* 响应式设计 */
+        @media (max-width: 768px) {
+            header {
+                flex-direction: column;
+                padding: 15px;
+            }
+
+            nav ul {
+                margin-top: 15px;
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+
+            nav ul li {
+                margin: 0 8px 10px 8px;
+            }
+
+            .content-section {
+                padding: 30px 15px;
+                margin-top: 15px;
+                margin-bottom: 15px;
+            }
+
+            .content-section h1 {
+                font-size: 32px;
+            }
+
+            .content-section p {
+                font-size: 16px;
+                text-align: center; /* 手机端段落文字居中 */
+            }
+
+            .features-list {
+                grid-template-columns: 1fr;
+            }
+
+            .features-list li {
+                padding: 15px;
+                align-items: center; /* 手机端特点列表项内容居中 */
+                text-align: center;
+            }
+
+            .button-group {
+                flex-direction: column;
+                gap: 15px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="logo">
+            <img src="logo.png" alt="Full Secure Sdn Bhd Logo">
+        </div>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="services.html">Services</a></li>
+                <li><a href="partner.html">Partner</a></li>
+                <li><a href="contact.html">Contact Us</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section class="content-section">
+            <h1>Barrier Gate</h1>
+            <p>Barrier systems are indispensable and critical security equipment for locations where vehicle entry and exit need to be effectively managed. Full Secure Sdn Bhd provides a high-performance, high-reliability barrier system designed to provide you with smooth traffic flow management and enhanced area security.</p>
+            <p>Our barrier systems are widely used in residential areas, commercial parking lots, industrial parks, office buildings and other places that require strict vehicle access control. By combining state-of-the-art technology, we are able to tailor the most suitable solution for you.</p>
+
+            <ul class="features-list">
+                <li>
+                    <strong>Remotely monitor health systems</strong>
+                    <span>Our barrier system integrates advanced remote monitoring functions, and you can view the operating status of the barrier in real time, including the number of switches, fault warnings, etc. This helps us to quickly diagnose and resolve potential problems, ensuring that the system continues to operate reliably and minimizes downtime.</span>
+                </li>
+                <li>
+                    <strong>License plate and vehicle type recognition technology</strong>
+                    <span>Using the latest License Plate Recognition (LPR) and model recognition technologies, the system is able to automatically identify information entering and exiting vehicles. This not only greatly improves traffic efficiency and reduces manual intervention, but also provides your premises with more accurate vehicle management data.</span>
+                </li>
+                <li>
+                    <strong>Blacklist identification system</strong>
+                    <span>To further enhance safety, our barrier systems have built-in powerful blacklist recognition. For unauthorized or blacklisted vehicles, the system will automatically refuse to release and issue an alarm, effectively preventing suspicious vehicles from entering and ensuring the safety of your property and personnel.</span>
+                </li>
+                <li>
+                    <strong>Multiple control methods</strong>
+                    <span>In addition to intelligent identification, the barrier system also supports a variety of operating modes, including remote control, card swiping, ticketing system, intercom linkage, etc., which can be flexibly configured according to your specific needs.</span>
+                </li>
+                <li>
+                    <strong>Rugged and adaptable to a variety of environments</strong>
+                    <span>The barrier equipment we use is made of high-quality materials with excellent weather resistance and stability, and can operate reliably in a variety of harsh climatic conditions for a long time, reducing maintenance costs.</span>
+                </li>
+            </ul>
+
+            <p>When you choose Full Secure Sdn Bhd's car park barrier system, you get an intelligent, efficient, and highly secure vehicle access management solution. We are committed to providing you with a one-stop service from design, installation to maintenance to ensure that your system is always running at its best.</p>
+
+            <div class="button-group">
+                <a href="contact.html" class="action-button">Contact Us</a>
+                <a href="healthmonitoring-details.html" class="action-button">Health Monitoring Service</a>
+            </div>
+        </section>
+    </main>
+
+</body>
+</html>

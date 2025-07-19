@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Full Secure Sdn Bhd - 系统健康监控服务</title>
+    <style>
+        /* 通用样式 */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            color: #FFFF00; /* 全局字体颜色设置为黄色 */
+            background: url('background.png') no-repeat center center fixed;
+            background-size: cover;
+        }
+
+        /* 头部样式 */
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 50px;
+        }
+
+        .logo img {
+            height: auto;
+            max-height: 120px;
+            display: block;
+            object-fit: contain;
+        }
+
+        nav ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+        }
+
+        nav ul li {
+            margin-left: 25px;
+        }
+
+        nav ul li a {
+            text-decoration: none;
+            color: red; /* 链接颜色 */
+            font-weight: bold;
+            padding: 8px 15px;
+            background-color: transparent;
+            border-radius: 5px;
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
+
+        nav ul li a:hover {
+            background-color: rgba(255, 0, 0, 0.1);
+            color: darkred;
+        }
+
+        nav ul li a:active {
+            background-color: rgba(255, 0, 0, 0.2);
+            color: #8B0000;
+        }
+
+        /* 内容区域通用样式 */
+        .content-section {
+            padding: 50px 20px;
+            max-width: 960px;
+            margin: 0 auto;
+            text-align: center;
+            background-color: rgba(0, 0, 0, 0.5); /* 半透明黑色背景 */
+            border-radius: 10px;
+            margin-top: 30px;
+            margin-bottom: 30px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+            color: #FFFF00; /* 内容区域文字颜色设置为黄色 */
+        }
+
+        .content-section h1, .content-section h2 {
+            color: #00FF00; /* 标题颜色 */
+            margin-bottom: 25px;
+            font-size: 38px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+        }
+        .content-section h2 {
+            font-size: 32px; /* 小标题字体大小 */
+            margin-top: 40px;
+            border-bottom: 2px solid rgba(0, 255, 0, 0.3); /* 底部绿色边框 */
+            padding-bottom: 10px;
+            text-align: center; /* 确保h2标题居中 */
+        }
+
+        .content-section p {
+            font-size: 18px;
+            line-height: 1.8;
+            margin-bottom: 20px;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.6);
+            text-align: left; /* 段落左对齐 */
+        }
+
+        .content-section ul {
+            list-style: disc; /* 使用圆点列表 */
+            text-align: left; /* 列表项左对齐 */
+            margin-left: 40px; /* 列表左边距 */
+            margin-bottom: 20px;
+            font-size: 18px;
+            line-height: 1.8;
+            color: #FFFFF0; /* 象牙白 */
+        }
+
+        .content-section ul li strong {
+            color: #FFD700; /* 金色加粗文字 */
+        }
+
+        /* 图片容器样式 */
+        .image-container {
+            display: flex; /* 使用Flexbox布局 */
+            flex-wrap: wrap; /* 允许图片换行 */
+            justify-content: center; /* 图片居中对齐 */
+            gap: 30px; /* 图片之间间距 */
+            margin: 40px 0; /* 上下外边距 */
+        }
+
+        .content-image {
+            max-width: 45%; /* 图片最大宽度为容器的45% */
+            height: auto;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5); /* 较深的阴影 */
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            object-fit: cover; /* 裁剪图片以填充容器，保持比例 */
+        }
+
+        .content-image:hover {
+            transform: scale(1.03); /* 鼠标悬停时略微放大 */
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.6); /* 阴影进一步加深 */
+        }
+
+        /* 返回按钮样式 */
+        .back-button {
+            display: inline-block;
+            padding: 12px 25px;
+            background-color: #FF5733; /* 橙红色按钮 */
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: bold;
+            font-size: 18px;
+            transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            margin-top: 30px;
+        }
+
+        .back-button:hover {
+            background-color: #E04B2C; /* 鼠标悬停时变深 */
+            transform: translateY(-2px);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+        }
+
+        .back-button:active {
+            background-color: #C73E23;
+            transform: translateY(0);
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+        }
+
+        /* 响应式设计 */
+        @media (max-width: 768px) {
+            header {
+                flex-direction: column;
+                padding: 15px;
+            }
+
+            nav ul {
+                margin-top: 15px;
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+
+            nav ul li {
+                margin: 0 8px 10px 8px;
+            }
+
+            .content-section {
+                padding: 30px 15px;
+                margin-top: 15px;
+                margin-bottom: 15px;
+            }
+
+            .content-section h1 {
+                font-size: 32px;
+            }
+            .content-section h2 {
+                font-size: 28px;
+            }
+
+            .content-section p, .content-section ul {
+                font-size: 16px;
+                text-align: justify; /* 小屏幕上段落两端对齐 */
+                margin-left: 20px; /* 调整列表左边距 */
+            }
+
+            .image-container {
+                flex-direction: column; /* 垂直堆叠图片 */
+                gap: 20px; /* 调整垂直间距 */
+            }
+
+            .content-image {
+                max-width: 90%; /* 小屏幕下图片宽度更大 */
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="logo">
+            <img src="logo.png" alt="Full Secure Sdn Bhd Logo">
+        </div>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="services.html">Services</a></li>
+		<li><a href="partner.html">Partner</a></li>
+                <li><a href="contact.html">Contact Us</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section class="content-section">
+            <h1>System health monitoring services (After-Sales Service)</h1>
+            <p>As a security system user, have you ever encountered the following problems: An alarm system fails at a critical moment? The monitoring screen suddenly freezes or interrupts? Slow access control system response? These after-sales service issues not only affect your daily operations but can also cause irreparable losses in an emergency.</p>
+            <p>Full Secure Sdn Bhd, we understand the importance of stable system operation. That's why we're proud to introduce Systems Health Monitoring, designed to proactively identify and address potential issues, ensuring that all your security equipment, including closed-circuit television (CCTV), alarm systems, access control systems, and automatic doors, continues to operate efficiently.</p>
+	    <div class="image-container">
+                <img src="health-pic1.png" alt="系统健康监控示例图1" class="content-image">
+		<img src="health-pic2.png" alt="系统健康监控示例图2" class="content-image">
+            </div>
+            <h2>What is System Health Monitoring Service?</h2>
+            <p>System health monitoring service is a proactive, preventive** maintenance solution. By deploying intelligent monitoring tools and technologies, we are able to:</p>
+            <ul>
+                <li>**Real-time monitoring**: Continuously track the operation status of your security equipment, including hardware health, network connection, recording storage, power supply, etc.</li>
+                <li>**Abnormal Warning**: As soon as any abnormalities or signs of potential failure are detected, the system immediately alerts and notifies our technical team remotely.</li>
+                <li>**Remote Diagnostics and Maintenance**: Many common problems can be diagnosed and repaired remotely without sending technicians on-site.</li>
+                <li>**Regular Reports**: Provides you with detailed system health reports that give you a complete understanding of the "health" of your security system.</li>
+            </ul>
+
+            <h2>Benefits of System Health Monitoring Services</h2>
+            <p>By choosing our system health monitoring service, you will receive the following significant benefits:
+
+</p>
+            <ul>
+                <li><strong>Preventive maintenance to reduce failures:</strong>：Shift from reactive "patching" to proactive "prevention" to dramatically reduce the incidence of system failures and downtime.</li>
+                <li><strong>Rapid Response and Fix:</strong>Identify and resolve issues before they become critical failures, ensuring your security systems are always online.</li>
+                <li><strong>Extended Equipment Lifespan:</strong>：Ensure that equipment operates optimally through continuous monitoring and timely maintenance, thereby extending its lifespan.</li>
+                <li><strong>Operational cost savings:</strong>：Avoid high emergency repair costs and potential losses due to sudden failures.</li>
+                <li><strong>Peace of mind:</strong>：Know that your security system is continuously monitored by a team of professionals to provide you with uninterrupted protection.</li>
+            </ul>
+	    <div class="image-container">
+                <img src="health-pic3.png" alt="系统健康监控示例图3" class="content-image">
+            </div>
+            <h2>Potential challenges and considerations</h2>
+            <p>Despite the significant advantages of system health monitoring services, there are also some considerations:</p>
+            <ul>
+                <li>**Network Connection Dependency**: The effectiveness of the service is highly dependent on a stable network connection. Network outages can affect remote monitoring capabilities.</li>
+                <li>**Initial deployment investment**: Additional monitoring software or hardware may need to be deployed, and there will be a certain investment cost in the early stage.</li>
+                <li>**Not a panacea**: While most software and minor hardware issues can be prevented and quickly resolved, on-site technical support is still required for large physical damage or complex failures.</li>
+                <li>**Data Privacy**: In some cases, surveillance systems may involve data transmission, requiring ensuring that data encryption and privacy protection measures are in place.</li>
+            </ul>
+
+            <p style="margin-top: 40px; text-align: center;">Investing in system health monitoring services is investing in the long-term stability and reliability of your security system. Let <strong>Full Secure Sdn Bhd </strong>be your trusted partner.</p>
+
+            <a href="contact.html" class="back-button">Contact Us</a>
+        </section>
+    </main>
+
+</body>
+</html>

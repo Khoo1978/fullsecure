@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Full Secure Sdn Bhd - CCTV 详情</title>
+    <style>
+        /* 通用样式 */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            color: #FFFF00; /* 全局字体颜色设置为黄色 */
+            background: url('background.png') no-repeat center center fixed;
+            background-size: cover;
+        }
+
+        /* 头部样式 */
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 50px;
+        }
+
+        .logo img {
+            height: auto;
+            max-height: 120px;
+            display: block;
+            object-fit: contain;
+        }
+
+        nav ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+        }
+
+        nav ul li {
+            margin-left: 25px;
+        }
+
+        nav ul li a {
+            text-decoration: none;
+            color: red; /* 链接颜色 */
+            font-weight: bold;
+            padding: 8px 15px;
+            background-color: transparent;
+            border-radius: 5px;
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
+
+        nav ul li a:hover {
+            background-color: rgba(255, 0, 0, 0.1);
+            color: darkred;
+        }
+
+        nav ul li a:active {
+            background-color: rgba(255, 0, 0, 0.2);
+            color: #8B0000;
+        }
+
+        /* 内容区域通用样式 */
+        .content-section {
+            padding: 50px 20px;
+            max-width: 960px;
+            margin: 0 auto;
+            text-align: center;
+            background-color: rgba(0, 0, 0, 0.5); /* 半透明黑色背景 */
+            border-radius: 10px;
+            margin-top: 30px;
+            margin-bottom: 30px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+            color: #FFFF00; /* 服务内容区域的文字颜色设置为黄色 */
+        }
+
+        .content-section h1, .content-section h2 {
+            color: #00FF00; /* 标题颜色 */
+            margin-bottom: 25px;
+            font-size: 38px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+        }
+        .content-section h2 {
+            font-size: 32px; /* 小标题字体大小 */
+            margin-top: 40px;
+            border-bottom: 2px solid rgba(0, 255, 0, 0.3); /* 底部绿色边框 */
+            padding-bottom: 10px;
+        }
+
+        .content-section p {
+            font-size: 18px;
+            line-height: 1.8;
+            margin-bottom: 20px;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.6);
+            text-align: left; /* 段落左对齐 */
+        }
+
+        /* 表格样式 */
+        .content-section table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 30px 0;
+            font-size: 16px;
+            background-color: rgba(255, 255, 255, 0.05); /* 更透明的表格背景 */
+            border-radius: 8px;
+            overflow: hidden; /* 确保圆角可见 */
+        }
+
+        .content-section th, .content-section td {
+            border: 1px solid rgba(0, 255, 0, 0.2); /* 绿色边框 */
+            padding: 12px 15px;
+            text-align: left;
+            color: #FFFFF0; /* 象牙白文字 */
+        }
+
+        .content-section th {
+            background-color: rgba(0, 255, 0, 0.15); /* 表头绿色透明背景 */
+            color: #FFD700; /* 金色表头文字 */
+            font-weight: bold;
+            text-transform: uppercase;
+        }
+
+        .content-section tr:nth-child(even) {
+            background-color: rgba(255, 255, 255, 0.03); /* 斑马纹效果 */
+        }
+
+        .content-section tr:hover {
+            background-color: rgba(255, 255, 255, 0.1); /* 行悬停效果 */
+        }
+
+        /* 了解更多按钮样式 */
+        .learn-more-button {
+            display: inline-block;
+            padding: 12px 25px;
+            background-color: #008CBA; /* 蓝色按钮 */
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: bold;
+            font-size: 18px;
+            transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            margin-top: 30px;
+        }
+
+        .learn-more-button:hover {
+            background-color: #007B9E;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+        }
+
+        .learn-more-button:active {
+            background-color: #006A8C;
+            transform: translateY(0);
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+        }
+
+        /* 响应式设计 */
+        @media (max-width: 768px) {
+            header {
+                flex-direction: column;
+                padding: 15px;
+            }
+
+            nav ul {
+                margin-top: 15px;
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+
+            nav ul li {
+                margin: 0 8px 10px 8px;
+            }
+
+            .content-section {
+                padding: 30px 15px;
+                margin-top: 15px;
+                margin-bottom: 15px;
+            }
+
+            .content-section h1 {
+                font-size: 32px;
+            }
+            .content-section h2 {
+                font-size: 28px;
+            }
+
+            .content-section p {
+                font-size: 16px;
+                text-align: justify; /* 小屏幕上段落两端对齐 */
+            }
+
+            .content-section th, .content-section td {
+                padding: 8px 10px;
+                font-size: 14px;
+            }
+            .content-section table {
+                display: block;
+                overflow-x: auto; /* 小屏幕上表格可水平滚动 */
+                white-space: nowrap;
+                -webkit-overflow-scrolling: touch; /* iOS流畅滚动 */
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="logo">
+            <img src="logo.png" alt="Full Secure Sdn Bhd Logo">
+        </div>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="services.html">Services</a></li>
+		<li><a href="partner.html">Partner</a></li>
+                <li><a href="contact.html">Contact Us</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section class="content-section">
+            <h1>Closed-circuit television (CCTV) surveillance systems</h1>
+            <p>In today's rapidly changing society, **security** has become a growing focus for individuals and businesses alike. Full Secure Sdn Bhd understands this and is committed to providing you with the most advanced and reliable **Closed Circuit Television (CCTV) Surveillance System**, ensuring that your property and loved ones are protected in all aspects.</p>
+            <p>CCTV, or Closed-Circuit Television, is a system that uses cameras to capture video footage and transmit it to surveillance equipment, such as monitors and video recorders, over specific, closed lines. Unlike traditional broadcast television, CCTV's video signals are not publicly transmitted, but are only available for real-time viewing and recording by authorized personnel, providing you with a dedicated surveillance solution.</p>
+
+            <h2>Analog CCTV vs. Network (IP) CCTV: How to Choose?</h2>
+            <p>CCTV systems are mainly divided into two categories: analog CCTV and network (IP) CCTV, which have significant differences in technology, performance and application. Understanding the differences can help you make an informed choice based on your needs:</p>
+
+            <table>
+                <thead>
+                    <tr>
+                        <th>characteristic</th>
+                        <th>Analog CCTV</th>
+                        <th>Network (IP) CCTV</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>**How it works**</td>
+                        <td>The camera is connected to a digital video recorder (DVR) via a coaxial cable.</td>
+                        <td>The camera transmits a digital signal over a network (network cable or Wi-Fi) to a network video recorder (NVR) or the cloud. Each IP camera has a unique IP address.</td>
+                    </tr>
+                    <tr>
+                        <td>**Video Quality**</td>
+                        <td>Traditionally lower resolutions (SD to HD, such as CVI/TVI/AHD at 720p/1080p).</td>
+                        <td>**HD and even Ultra HD** (up to megapixels like 2MP, 4MP, 8MP and even higher) Images are sharper and more detailed.</td>
+                    </tr>
+                    <tr>
+                        <td>**Wiring**</td>
+                        <td>Separate power cords and video coaxial cables are usually required.</td>
+                        <td>Usually a single network cable can supply power and transmit data (PoE, Power over Ethernet) at the same time, and the wiring is simpler.</td>
+                    </tr>
+                    <tr>
+                        <td>**Installation and Expansion**</td>
+                        <td>Installation is relatively simple, but system expansion may require more wiring.</td>
+                        <td>Installation can be slightly complex, but it is scalable, making it easy to add new cameras and integrate them into existing networks.</td>
+                    </tr>
+                    <tr>
+                        <td>**Smart Features**</td>
+                        <td>Usually limited functionality, mainly focused on video recording and playback.</td>
+                        <td>It supports rich intelligent analysis functions, such as motion detection, face recognition, out-of-bounds detection, and regional intrusion.</td>
+                    </tr>
+                    <tr>
+                        <td>**Remote Access**</td>
+                        <td>Remote access via DVR is required.</td>
+                        <td>Each IP camera can be accessed directly over the network for more flexible remote monitoring and management.</td>
+                    </tr>
+                    <tr>
+                        <td>**Cost**</td>
+                        <td>Usually the initial cost is lower.</td>
+                        <td>The initial investment may be higher, but in the long run, its flexibility and functionality may bring higher value.</td>
+                    </tr>
+                    <tr>
+                        <td>**Applicable Scenarios**</td>
+                        <td>Small, budget-constrained scenes that don't require high image detail.</td>
+                        <td>Medium and large projects that require high image clarity, scalability, and intelligent functions.</td>
+                    </tr>
+                </tbody>
+            </table>
+            <p>In short, **analog CCTV** is like a traditional film camera, economical and practical but with limited picture quality; And **network CCTV** is like a DSLR camera, with excellent picture quality and powerful functions, which is the trend of modern security.</p>
+
+            <h2>Learn more about the technical details: Pixels and lenses</h2>
+            <p>When selecting a CCTV system, it's crucial to understand the principles of pixels and lenses, which directly impact the quality of images and the effective range of surveillance.</p>
+            <p><strong>Pixels</strong> determine the clarity and detail of the image, and the more pixels, the more detailed the image.</p>
+            <p>The lens determines the camera's angle of view (how wide or narrow it can see) and focal length (how much it magnifies the objects in the frame).</p>
+            <a href="cctv-tech-details.html" class="learn-more-button">Learn More About Pixels And Lenses</a>
+	    <a href="contact.html" class="learn-more-button">Contact Us</a>
+            <p style="margin-top: 40px; text-align: center;">Full Secure Sdn Bhd's team of professionals is ready to consult you and help you choose the most suitable CCTV solution.</p>
+        </section>
+    </main>
+
+</body>
+</html>

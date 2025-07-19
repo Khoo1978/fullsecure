@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Full Secure Sdn Bhd - 像素与镜头详解</title>
+    <style>
+        /* 复制 cctv-details.html 中的通用样式和内容区域样式 */
+        body { font-family: Arial, sans-serif; margin: 0; padding: 0; box-sizing: border-box; color: #FFFF00; background: url('background.png') no-repeat center center fixed; background-size: cover; }
+        header { display: flex; justify-content: space-between; align-items: center; padding: 15px 50px; }
+        .logo img { height: auto; max-height: 120px; display: block; object-fit: contain; }
+        nav ul { list-style: none; margin: 0; padding: 0; display: flex; }
+        nav ul li { margin-left: 25px; }
+        nav ul li a { text-decoration: none; color: red; font-weight: bold; padding: 8px 15px; background-color: transparent; border-radius: 5px; transition: background-color 0.3s ease, color 0.3s ease; }
+        nav ul li a:hover { background-color: rgba(255, 0, 0, 0.1); color: darkred; }
+        nav ul li a:active { background-color: rgba(255, 0, 0, 0.2); color: #8B0000; }
+
+        .content-section { padding: 50px 20px; max-width: 960px; margin: 0 auto; text-align: center; background-color: rgba(0, 0, 0, 0.5); border-radius: 10px; margin-top: 30px; margin-bottom: 30px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); color: #FFFF00; }
+        .content-section h1, .content-section h2 { color: #00FF00; margin-bottom: 25px; font-size: 38px; text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7); }
+        .content-section h2 { font-size: 32px; margin-top: 40px; border-bottom: 2px solid rgba(0, 255, 0, 0.3); padding-bottom: 10px; }
+        .content-section p { font-size: 18px; line-height: 1.8; margin-bottom: 20px; text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.6); text-align: left; }
+
+        /* 其他你需要的样式，特别是针对这个页面的，比如返回按钮 */
+        .back-button {
+            display: inline-block;
+            padding: 10px 20px;
+            background-color: #555;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            margin-top: 30px;
+            transition: background-color 0.3s ease;
+        }
+        .back-button:hover {
+            background-color: #777;
+        }
+
+        /* 响应式设计 - 复制 cctv-details.html 中的媒体查询 */
+        @media (max-width: 768px) {
+            header { flex-direction: column; padding: 15px; }
+            nav ul { margin-top: 15px; flex-wrap: wrap; justify-content: center; }
+            nav ul li { margin: 0 8px 10px 8px; }
+            .content-section { padding: 30px 15px; margin-top: 15px; margin-bottom: 15px; }
+            .content-section h1 { font-size: 32px; }
+            .content-section h2 { font-size: 28px; }
+            .content-section p { font-size: 16px; text-align: justify; }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <img src="logo.png" alt="Full Secure Sdn Bhd Logo">
+        </div>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="services.html">Services</a></li>
+		<li><a href="partner.html">Partner</a></li>
+                <li><a href="contact.html">Contact Us</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section class="content-section">
+            <h1>Pixel and lens explained in detail</h1>
+
+            <h2>What is a Pixel?</h2>
+            <p><strong>Pixel</strong> is an abbreviation for "Picture Element". It is the **smallest unit** that makes up a digital image. You can think of a digital picture as a grid of countless tiny squares, each of which is a pixel. Each pixel carries specific color and brightness information.</p>
+            <p>The resolution of an image is usually expressed in terms of the width and height of the pixels, such as 1920x1080 pixels. This means that the image has 1920 pixels horizontally and 1080 pixels vertically. In CCTV systems, the number of pixels directly determines the clarity and detail of the image. The more pixels, the clearer the image and the ability to capture more details, such as clearer facial features, license plate numbers, etc., which is crucial for surveillance and forensics.</p>
+            <p>For example, a 2MP (megapixels) camera is usually 1920x1080 pixels (about 2 million pixels) in resolution, while an 8MP camera can provide 4K Ultra HD images with much more detail than 2MP.</p>
+
+            <h2>What is a Lens?</h2>
+            <p><strong>lens</strong> is a key component of a camera that captures light and focuses it on the image sensor. The choice of lens directly affects the camera's viewing angle and focal length, which determines the coverage and detail presentation of the surveillance picture.</p>
+            <ul>
+                <li>
+                    <h3>Focal Length</h3>
+                    <p>Focal length refers to the distance between the optical center of a lens and the image sensor, usually measured in millimeters (mm). The shorter the focal length, the wider the angle of view (wide angle); The longer the focal length, the narrower the angle of view, but it can magnify distant objects (telephoto).</p>
+                    <ul>
+                        <li><strong>Fixed Lens</strong>：The focal length is fixed, providing a fixed angle of view, simple structure, and low cost. Ideal for monitoring fixed areas.</li>
+                        <li><strong>Varifocal Lens</strong>：The focal length is adjustable, allowing manual or motorized adjustment of the angle of view and magnification, providing greater flexibility.</li>
+                        <li><strong>Optical Zoom</strong>：Changes the focal length by changing the combination of lenses inside the lens without losing image quality.</li>
+                        <li><strong>Digital Zoom</strong>：Enlarge a portion of an image, but at the cost of image detail and quality (similar to blurring a picture when zoomed in).</li>
+                    </ul>
+                </li>
+                <li>
+                    <h3>Angle of View</h3>
+                    <p>The angle of view refers to the horizontal or vertical range that the camera is able to "see". The wide-angle lens (short focal length) provides a wide angle of view and is suitable for monitoring a large area; The telephoto lens (long focal length) provides a narrow angle of view, making it suitable for monitoring distant targets and getting more details.</p>
+                </li>
+            </ul>
+            <p style="margin-top: 40px; text-align: center;">Choosing the right pixels and lenses is the key to building an efficient CCTV system. Full Secure Sdn Bhd's team of experts will be happy to advise you.</p>
+            <a href="cctv-details.html" class="back-button">Back</a>
+	    <a href="contact.html" class="back-button">Contact Us</a>
+        </section>
+    </main>
+</body>
+</html>
